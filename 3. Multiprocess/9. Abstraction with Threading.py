@@ -1,0 +1,21 @@
+import threading
+from time import sleep
+
+
+def draw_on_screen():
+    print('[', end='', flush=True)
+
+    for _ in range(10):
+        print('#', end='', flush=True)
+        sleep(0.8)
+
+    print(']', end='', flush=True)
+
+
+def main():
+    process = threading.Thread(target=draw_on_screen)
+    [process.start(), process.join()]
+
+
+if __name__ == '__main__':
+    main()
