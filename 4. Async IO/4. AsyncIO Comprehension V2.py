@@ -38,7 +38,8 @@ async def main():
         asyncio.create_task(data_generator(total * 2, data))
     ]
 
-    await asyncio.gather(tasks[0], tasks[1], tasks[2])
+    await asyncio.gather(*tasks)
+
 
 if __name__ == '__main__':
     asyncio.run(main())
